@@ -4,6 +4,7 @@ import DefaultLayout from '../components/DefaultLayout.vue'
 import AuthLayout from '../components/AuthLayout.vue'
 import Dashboard from '../views/Dashboard.vue'
 import Survey from '../views/Survey.vue'
+import SurveyView from '../views/SurveyView.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 
@@ -16,16 +17,10 @@ const routes = [
         },
         component: DefaultLayout,
         children: [
-            {
-                path: '/dashboard',
-                name: 'Dashboard',
-                component: Dashboard
-            },
-            {
-                path: '/survey',
-                name: 'Survey',
-                component: Survey
-            }
+            { path: '/dashboard', name: 'Dashboard', component: Dashboard },
+            { path: '/survey', name: 'Survey', component: Survey },
+            { path: '/survey/create', name: 'SurveyCreate', component: SurveyView },
+            { path: '/survey/:id', name: 'SurveyShow', component: SurveyView }
         ]
     },
     {
@@ -37,16 +32,8 @@ const routes = [
         name: 'Auth',
         component: AuthLayout,
         children: [
-            {
-                path: '/login',
-                name: 'Login',
-                component: Login
-            },
-            {
-                path: '/register',
-                name: 'Register',
-                component: Register
-            }
+            { path: '/login', name: 'Login', component: Login },
+            { path: '/register', name: 'Register', component: Register }
         ]
     }
 ]
